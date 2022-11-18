@@ -352,8 +352,8 @@ class WatchdogReloaderLoop(ReloaderLoop):
         self.observer.join()
 
     def run(self) -> None:
+        self.run_step()
         while not self.should_reload:
-            self.run_step()
             time.sleep(self.interval)
 
         sys.exit(3)
